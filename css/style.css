@@ -1,0 +1,16 @@
+.container {
+  background-image: url(../air.jpg);
+  height: 1280px;
+}
+img {
+  transform: scaleX(-1);
+}
+.man {
+  position: absolute;
+  top: 160px;
+}
+.airplane {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
