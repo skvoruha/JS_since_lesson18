@@ -1,236 +1,75 @@
-// console.log(window);
+// // BOM - browser
+// // содержит информацию о экране window.screen
+// console.dir(window.screen);
+// // screen можно обрщаться на прямую
+// // clientHight
+// // указывет длин и ширину экрана
 
-// setTimeout(() => {
-//   console.log(' Привет, я setTimeout');
-// },200)
+// window.addEventListener('resize', () =>{
+//   const height = document.documentElement.clientHeight
+//   const width = document.documentElement.clientWidth
 
-
-
-// const logger = (str) => {
-//   console.log(` Привет, я ${str} setTimeout`);
-// }
-// не надо добавлять круглые скобки
-// если запустить функцию с передачей аргумента таким образом
-//  то функция запуститться сразу а не через 2000
-// setTimeout(logger(`setTimeout`),2000)
-
-
-
-
-// // чобы работало 2000 нужна функция обёртка
-// setTimeout(() =>{
-//   console.log('setTimeout');
-// },2000)
-
-
-
-// let idTimeout = setTimeout(() =>{
-//   console.log('setTimeout');
-// },2000)
-// // запрещаем вызов setTimeout для этого нужно передать индетификатор
-// // а для этого нужно записать в переменную
-// clearTimeout(idTimeout)
-
-
-// Первый зов случиться через 2000 setInterval
-//  можно вызвать и так и через переменную
-// setInterval(() =>{
-//   console.log('setInterval 3000');
-// },3000)
-
-
-// let idInterval =  setInterval(() =>{
-//   console.log('setInterval 3000');
-// },3000)
-
-// clearTimeout(idInterval)
-
-// let count = 0
-
-// const logger = (str) => {
-//   console.log(` Привет, я ${str} setTimeout`);
-// }
-
-// let idTimeout = setTimeout(() =>{
-//   console.log('setTimeout');
-// },2000)
-
-// clearTimeout(idTimeout)
-
-// let idInterval =  setInterval(() =>{
-//   count++
-//   console.log('setInterval 3000');
-//   // если count больше 10 закрыть clearTimeout
-//   if (count == 10) clearTimeout(idInterval)
-// },300)
-
-
-
-
-// let active = false
-// let idTimeout
-
-// // при любом нажатии он меняет active на false
-// document.addEventListener('click', ()=>{
-//   // включатель и выключатель функции logger
-//   // if (active) {
-//   //   active = false
-//   // } else {
-//   //   active = true
-//   // }
-//   // более простой включатель и выключатель
-//   active = !active
-//   // ключатель функции
-//   logger('setTimeout');
-//   console.log(active);
-// })
-
-// const logger = (str) => {
-//   // мы проевремя если true то фунция заупускам
-//   if (active) {
-//     console.log(` Привет, я ${str} setTimeout`);
-//     idTimeout = setTimeout(() =>{
-//         logger('setTimeout');
-//     },300)
-//   }
-// }
-
-
-
-
-// clearTimeout(idTimeout)
-
-
-// const airplane = document.querySelector('.airplane')
-// const man = document.querySelector('.man')
-
-// let count = 160
-// let idInterval
-
-// const flyAnimate = () => {
-//   count++
-
-//   console.log(count);
-
-//   if(count < 320) {
-//     man.style.top = count + 'px'
-//     airplane.style.left = count*3 + 'px'
-//     // полсе того как count дойдёт до 200
-
-//   } else if (count<500){
-//         airplane.style.left = count*3 + 'px'
-//   } else {
-//     clearInterval(idInterval)
-//   }
-// }
-
-
-// idInterval = setInterval(flyAnimate,150)
-
-
-// const airplane = document.querySelector('.airplane')
-// const man = document.querySelector('.man')
-
-// let count = 0
-// let idInterval
-// let active = false
-
-// const flyAnimate = () => {
-//   count++
-//   // Анимация лучше делать ерез requestAnimationFrame
-//   idInterval = requestAnimationFrame(flyAnimate)
-
-//   if(count < 320) {
-//     man.style.top = count + 'px'
-//     airplane.style.left = count*5 + 'px'
-//     // полсе того как count дойдёт до 200
-
-//   } else if (count<500){
-//         airplane.style.left = count*3 + 'px'
-//   } else {
-//     cancelAnimationFrame(flyAnimate)
-//   }
-// }
-// // функция анимации
-
-
-// document.addEventListener('click', () => {
-//   if (active) {
-//      cancelAnimationFrame(flyAnimate)
-//      active = false
-//     } else {
-//       idInterval = requestAnimationFrame(flyAnimate)
-//       active = true
-//   }
+//   console.log('clientHeight', height);
+//   console.log('clientWidth', width);
 // })
 
 
+  // const height = document.documentElement.clientHeight
+  // const width = document.documentElement.clientWidth
+  // const btn = document.getElementById('btn')
 
-// Объект Date
+  // console.log('clientHeight', height);
+  // console.log('clientWidth', width);
 
-// передавая в таком формате нужно запомнить порядок
-// let date = new Date(1989, 9 ,22, 03 ,02,200)
-// год 1900
-// let date = new Date('', 9 ,22, 03 ,02,200)
+  // window.addEventListener('scroll', ()=>{
+    //   const top = document.documentElement.scrollTop
+    //   const left = document.documentElement.scrollLeft
 
-// console.log(date);
+    //   console.log('top ', top);
+  //   console.log('left ', left);
+  // })
+  // // при нажати,кнопки скрол top на 100зч уйдет
+  // btn.addEventListener('click', () =>{
+    //   document.documentElement.scrollTop = 100
+    // })
 
-// console.log('Год ' + date.getFullYear());
-// console.log('Месяц ' + (date.getMonth() + 1));
-// console.log('Число месяца ' + date.getDate());
-// console.log('Число недели ' + date.getDay());
+const block = document.querySelector('.block')
+const btn = document.getElementById('btn')
+// окажет размер блока без скрола (полосы прокуртуики)
+const clientHeight = block.clientHeight
+const clientWidth = block.clientWidth
+// покажет размер блока заданного в css
+const offsetHeight = block.offsetHeight
+const offsetWidth  = block.offsetWidth
+// для того чтобы получить полную ширину контента блока
+const scrollHeight = block.scrollHeight
+const scrollWidth  = block.scrollWidth
 
-// console.log('Часы ' + date.getHours());
-// console.log('Минуты ' + date.getMinutes());
-// console.log('Секунды ' + date.getSeconds());
-// console.log('Милисекунды ' + date.getMilliseconds());
+// console.dir(clientHeight);
+// console.dir(clientWidth);
+// console.dir(offsetHeight);
+// console.dir(offsetWidth);
+// console.dir(scrollHeight);
+// console.dir(scrollWidth);
 
+btn.addEventListener('click', () => {
+  // console.log('fg');
 
-// время по гринвичу
-
-// let date = new Date(1423524542364)
-let date = new Date()
-// передаём свои данные по году
-// date.setFullYear(1987,9,4)
-// предаём число месяца
-// date.setMonth(9,22)
-
-// передать 1 аргумент это число
-// date.setDate(223)
-// можно передать сегодняшнее число плюс 100 дней
-// date.setDate(date.setDate + 100)
-// емли передать больше 30 дней то будет переводит на другой месяц
-// ТАКЖЕ МОЖНО ПЕРЕДАТЬ ЧАСЫ , МИНУТЫ СЕКУНДЫ И МИЛИСЕКУНДЫ
-// ДЕНЬ НЕДЕЛИ МЫ ПЕРЕДАТЬ НЕ МОЖЕМ
-// ТАКЖЕ И С МЕСЯЦАМИ
-// date.setMonth(17,175)
-
-console.log('Год ' + date.getUTCFullYear());
-console.log('Месяц ' + (date.getUTCMonth() + 1));
-console.log('Число месяца ' + date.getUTCDate());
-console.log('Число недели ' + date.getUTCDay());
-
-console.log('Часы ' + date.getUTCHours());
-console.log('Минуты ' + date.getUTCMinutes());
-console.log('Секунды ' + date.getUTCSeconds());
-console.log('Милисекунды ' + date.getUTCMilliseconds());
-
-
-// times tamp это сктолько прошло милисекунд с 1970
-// если предать дату до 1970 года то мы получим отрицательное число
-console.log(date.getTime());
-
-// локализация
-// console.log(date.toLocaleDateString('en'));
-console.log(date.toLocaleDateString());
-console.log(date.toLocaleTimeString());
+  // 17 + 2 чтобв убртаь линию скрола
+  // block.style.height = `${block.scrollHeight + 17 + 2}px`
+  // block.style.width = `${block.scrollWidth + 17 + 2}px`
+  // block.scrollTop += 10
+  // block.scrollLeft = 100
+  // console.log(block.scrollTop);
+  // console.log(block.scrollLeft);
+  // ПОШАГОВЫЙ МЕТОД РОКУРТКИ СКРОЛА
+  // block.scrollBy(10,0)
+  // ДАННЫЙ МЕТОД РЕАЛИЗУЕТ ТОЛЬКО ОДИН ПЕРЕХОД ТО ЕСТЬ ПЕРЙДЕТ ЕДИНОЖДЫ
+  // block.scrollTo(20,100)
 
 
-// ISO формат даты
-console.log(date.toISOString('en').substr(0,10));
-
-
-// получи млмсек
-console.log(Date.now());
-
-console.log(Date.parse('22 ocotber 1987'));
+  // ПОЛУЧАЕМ КООРДИНАТФ
+  // через точку можно обратиься к свойству
+  const elemRect = block.getBoundingClientRect()
+  console.log(elemRect.top);
+})

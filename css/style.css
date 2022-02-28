@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box;
+}
 .container {
   background-image: url(../air.jpg);
   height: 1280px;
@@ -13,4 +16,24 @@ img {
   position: absolute;
   left: 0;
   top: 0;
+}
+.content {
+  display: block;
+  height: 400px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: green;
+}
+.block {
+  padding: 10px;
+  border: 1px solid #000;
+  width: 400px;
+  height: 200px;
+  overflow: scroll;
+  background-color: red;
+}
+p {
+  width: max-content;
 }
